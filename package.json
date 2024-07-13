@@ -1,0 +1,106 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "wireit",
+    "dev": "wireit",
+    "format": "wireit",
+    "lint": "wireit",
+    "test": "wireit",
+    "start": "node -r pino-debug -r ./dist/instrumentation.js ./dist/index.js",
+    "pm2": "pm2 start",
+    "prepare": "husky"
+  },
+  "wireit": {
+    "build": {
+      "dependencies": [
+        "tsc"
+      ]
+    },
+    "dev": {
+      "command": "vite-node src/index.ts",
+      "files": [
+        "./src/**/*.{ts,js}",
+        "vite.config.ts",
+        "package.json"
+      ],
+      "env": {
+        "DEBUG": "app:*",
+        "DEBUG_HIDE_DATE": "true",
+        "NODE_ENV": "production"
+      }
+    },
+    "format": {
+      "command": "prettier src",
+      "files": [
+        "./src/**/*.{ts,js}"
+      ]
+    },
+    "lint": {
+      "command": "eslint --color .",
+      "files": [
+        "src/**/*.{ts,js}",
+        "eslint.config.mjs",
+        "tsconfig.json"
+      ],
+      "output": []
+    },
+    "test": {
+      "command": "vitest",
+      "files": [
+        "src/**",
+        "package.json",
+        "vite.config.mts"
+      ]
+    },
+    "tsc": {
+      "command": "tsc --build --pretty",
+      "clean": "if-file-deleted",
+      "files": [
+        "src/**/*.{ts,js}",
+        "package.json",
+        "tsconfig.json"
+      ],
+      "output": [
+        "dist/**",
+        ".tsbuildinfo"
+      ]
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "@types/debug": "^4.1.12",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.14.10",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.0",
+    "vite-node": "^2.0.2",
+    "vitest": "^2.0.2",
+    "wireit": "^0.14.5"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "npm run format",
+      "npm run lint"
+    ]
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.48.0",
+    "@opentelemetry/sdk-metrics": "^1.25.1",
+    "@opentelemetry/sdk-node": "^0.52.1",
+    "@opentelemetry/sdk-trace-node": "^1.25.1",
+    "pino-debug": "^2.0.0"
+  }
+}
