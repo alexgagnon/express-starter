@@ -9,7 +9,6 @@ export default tseslint.config(
       'dist/',
       'ecosystem.config.js',
       'eslint.config.mjs',
-      'vite.config.mts'
     ]
   },
   eslint.configs.recommended,
@@ -17,7 +16,7 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        project: true,
+        project: './tsconfig.base.json',
         tsconfigRootDir: import.meta.dirname
       },
     },

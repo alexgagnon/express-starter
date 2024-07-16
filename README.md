@@ -1,6 +1,6 @@
 # Node Starter
 
-Starter repo for Node.JS
+Starter repo for Node.JS apps
 
 - wireit - script manager
 - typescript - static typing
@@ -10,3 +10,4 @@ Starter repo for Node.JS
 - vitest - unit testing using vite config
 - husky & lint-staged - commit control
 - pino & debug - logging
+- opentelemetry - telemetry

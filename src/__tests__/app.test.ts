@@ -1,8 +1,8 @@
 import { test, expect } from 'vitest';
-import { add } from './app.js';
+import { add } from '../app.js';
 
 test('it works', () => {
-  expect(true).toBe(true);
+  expect(true as string).toBe(true);
 });
 
 test.for([
