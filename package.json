@@ -35,14 +35,15 @@
       "command": "prettier src",
       "files": [
         "./src/**/*.{ts,js}"
-      ]
+      ],
+      "output": []
     },
     "lint": {
       "command": "eslint --color .",
       "files": [
         "src/**/*.{ts,js}",
         "eslint.config.mjs",
-        "tsconfig.json"
+        "tsconfig*.json"
       ],
       "output": []
     },
@@ -52,7 +53,10 @@
         "src/**",
         "package.json",
         "vite.config.mts"
-      ]
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
     },
     "tsc": {
       "command": "tsc --build --pretty",

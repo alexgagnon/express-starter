@@ -16,10 +16,16 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.base.json',
+        project: './tsconfig.base.json', // target the base config file, not the build one
         tsconfigRootDir: import.meta.dirname
       },
     },
   },
-  prettierConfig,
+  {
+    rules: {
+      "semi": "off",
+      "@typescript-eslint/semi": "error" // may need to turn off eslint rule and activate typescript-eslint rule
+    }
+  },
+  prettierConfig // turn off rules by prettier
 );
