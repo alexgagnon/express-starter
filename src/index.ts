@@ -1,7 +1,7 @@
-import { run } from "./app.js"
+import { run } from './app.js'
 
 run({
   numbers: [1, 2, 3],
   entries: [],
-  output: "output.txt"
+  output: 'output.txt'
 })

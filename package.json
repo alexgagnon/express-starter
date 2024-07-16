@@ -32,9 +32,11 @@
       }
     },
     "format": {
-      "command": "prettier src",
+      "command": "prettier .",
       "files": [
-        "./src/**/*.{ts,js}"
+        "./src/**/*.{ts,js,md}",
+        "package.json",
+        ".prettierrc"
       ],
       "output": []
     },

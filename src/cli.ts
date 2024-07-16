@@ -1,27 +1,27 @@
-import { parseArgs } from "node:util"
-import { type Options, run } from "./app.js"
-import { getDebug } from "./debug.js"
+import { parseArgs } from 'node:util'
+import { type Options, run } from './app.js'
+import { getDebug } from './debug.js'
 const debug = getDebug(__filename)
 
-const DEFAULT_NUMBERS = ["1", "2", "3"]
+const DEFAULT_NUMBERS = ['1', '2', '3']
 
 const options = {
   help: {
-    type: "boolean",
-    short: "h",
-    description: "Show help"
+    type: 'boolean',
+    short: 'h',
+    description: 'Show help'
   },
   numbers: {
-    type: "string",
+    type: 'string',
     multiple: true,
-    short: "n",
+    short: 'n',
     default: DEFAULT_NUMBERS,
-    description: "Numbers"
+    description: 'Numbers'
   },
   output: {
-    type: "string",
-    short: "o",
-    description: "Output file"
+    type: 'string',
+    short: 'o',
+    description: 'Output file'
   }
 } as const
 
@@ -33,7 +33,7 @@ const args = parseArgs({
   strict: true
 })
 
-debug("Arguments: %o", args)
+debug('Arguments: %o', args)
 
 const { values, positionals } = args
 const { help, numbers, ...rest } = values
@@ -44,7 +44,7 @@ if (help) {
 }
 
 if (positionals.length === 0) {
-  console.error("Missing entries")
+  console.error('Missing entries')
   showUsage()
   process.exit(1)
 }
@@ -57,12 +57,12 @@ run({
 
 function showUsage() {
   console.log(
-    `\nUsage: cli [options]${allowPositionals ? " <entries...>" : ""}`
+    `\nUsage: cli [options]${allowPositionals ? ' <entries...>' : ''}`
   )
   Object.entries(options).forEach(([name, option]) => {
     const defaultValue =
-      "default" in option ? ` [default: ${option.default.toString()}]` : ""
-    const alias = option.short ? `, -${option.short}` : ""
+      'default' in option ? ` [default: ${option.default.toString()}]` : ''
+    const alias = option.short ? `, -${option.short}` : ''
     const description = option.description
     console.log(`  --${name}${alias}${description}${defaultValue}`)
   })
