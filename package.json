@@ -96,7 +96,7 @@
   },
   "lint-staged": {
     "*": [
-      "npm run format --list-different",
+      "npm run format -- --check",
       "npm run lint"
     ]
   },
