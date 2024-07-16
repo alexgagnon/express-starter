@@ -64,7 +64,8 @@
       "files": [
         "src/**/*.{ts,js}",
         "package.json",
-        "tsconfig.json"
+        "tsconfig.json",
+        "tsconfig.base.json"
       ],
       "output": [
         "dist/**",
@@ -94,8 +95,8 @@
     "wireit": "^0.14.5"
   },
   "lint-staged": {
-    "*.{ts,js}": [
-      "npm run format",
+    "*": [
+      "npm run format --list-different",
       "npm run lint"
     ]
   },
