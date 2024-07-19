@@ -111,5 +111,8 @@
     "@opentelemetry/sdk-node": "^0.52.1",
     "@opentelemetry/sdk-trace-node": "^1.25.1",
     "pino-debug": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
