@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.lint.json",
   "include": ["src/**/*"],
-  "exclude": ["**/__tests__", "src/**/*.test.ts"]
+  "exclude": ["**/__tests__", "**/__mocks__", "src/**/*.test.ts"]
 }
