@@ -3,6 +3,7 @@
     "target": "esnext", // Keep the JavaScript version as modern as possible
     "lib": ["esnext"], // Remove unneeded types like DOM APIs
     "module": "nodenext", // Use ES modules
+    "esModuleInterop": true,
     "declaration": false, // Do not generate declaration files
     "removeComments": false, // Retain comments
     "strict": false, // Disable all strict type-checking options

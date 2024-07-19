@@ -16,11 +16,5 @@ export default tseslint.config(
       }
     }
   },
-  {
-    rules: {
-      semi: 'off',
-      '@typescript-eslint/semi': 'error' // may need to turn off eslint rule and activate typescript-eslint rule
-    }
-  },
   prettierConfig
 );

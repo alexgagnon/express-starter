@@ -1,7 +1,6 @@
 import { parseArgs } from 'node:util';
 import { type Options, run } from './app.js';
-import { getDebug } from './debug.js';
-const debug = getDebug(import.meta.filename);
+import logger from './configs/logger.js';
 
 const DEFAULT_NUMBERS = ['1', '2', '3'];
 
@@ -33,7 +32,7 @@ const args = parseArgs({
   strict: true
 });
 
-debug('Arguments: %o', args);
+logger.debug('Arguments: %o', args);
 
 const { values, positionals } = args;
 const { help, numbers, ...rest } = values;
