@@ -1,6 +1,7 @@
 {
   "name": "starter",
   "version": "1.0.0",
+  "type": "module",
   "main": "./dist/index.js",
   "scripts": {
     "build": "wireit",
@@ -8,8 +9,8 @@
     "format": "wireit",
     "lint": "wireit",
     "test": "wireit",
-    "start": "node -r pino-debug -r ./dist/instrumentation.js ./dist/index.js",
-    "pm2": "pm2 start",
+    "start": "node --import ./dist/instrumentation.js -r pino-debug  ./dist/index.js",
+    "pm2": "pm2 start ecosystem.config.cjs",
     "prepare": "husky"
   },
   "wireit": {
@@ -50,7 +51,7 @@
       "output": []
     },
     "test": {
-      "command": "vitest",
+      "command": "vitest run",
       "files": [
         "src/**",
         "package.json",
@@ -66,8 +67,7 @@
       "files": [
         "src/**/*.{ts,js}",
         "package.json",
-        "tsconfig.json",
-        "tsconfig.base.json"
+        "tsconfig*.json"
       ],
       "output": [
         "dist/**",
@@ -83,6 +83,7 @@
     "@eslint/js": "^9.7.0",
     "@types/debug": "^4.1.12",
     "@types/eslint__js": "^8.42.3",
+    "@types/eslint-config-prettier": "^6.11.3",
     "@types/node": "^20.14.10",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
@@ -91,7 +92,7 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.3",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^7.16.0",
+    "typescript-eslint": "^7.16.1",
     "vite-node": "^2.0.2",
     "vitest": "^2.0.2",
     "wireit": "^0.14.5"

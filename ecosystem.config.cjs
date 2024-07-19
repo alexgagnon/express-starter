@@ -1,4 +1,4 @@
-const pkg = require('./package.json')
+const pkg = require('./package.json');
 
 module.exports = {
   apps: [
@@ -13,4 +13,4 @@ module.exports = {
       interpreter_args: '-r pino-debug -r ./dist/instrumentation.js'
     }
   ]
-}
+};

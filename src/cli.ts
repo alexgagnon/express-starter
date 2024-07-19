@@ -1,9 +1,9 @@
-import { parseArgs } from 'node:util'
-import { type Options, run } from './app.js'
-import { getDebug } from './debug.js'
-const debug = getDebug(__filename)
+import { parseArgs } from 'node:util';
+import { type Options, run } from './app.js';
+import { getDebug } from './debug.js';
+const debug = getDebug(import.meta.filename);
 
-const DEFAULT_NUMBERS = ['1', '2', '3']
+const DEFAULT_NUMBERS = ['1', '2', '3'];
 
 const options = {
   help: {
@@ -23,48 +23,48 @@ const options = {
     short: 'o',
     description: 'Output file'
   }
-} as const
+} as const;
 
-const allowPositionals = true
+const allowPositionals = true;
 
 const args = parseArgs({
   options,
   allowPositionals,
   strict: true
-})
+});
 
-debug('Arguments: %o', args)
+debug('Arguments: %o', args);
 
-const { values, positionals } = args
-const { help, numbers, ...rest } = values
+const { values, positionals } = args;
+const { help, numbers, ...rest } = values;
 
 if (help) {
-  showUsage()
-  process.exit(0)
+  showUsage();
+  process.exit(0);
 }
 
 if (positionals.length === 0) {
-  console.error('Missing entries')
-  showUsage()
-  process.exit(1)
+  console.error('Missing entries');
+  showUsage();
+  process.exit(1);
 }
 
 run({
   numbers: numbers.map((number) => parseInt(number)),
   entries: positionals,
   ...rest
-} as Options)
+} as Options);
 
 function showUsage() {
   console.log(
     `\nUsage: cli [options]${allowPositionals ? ' <entries...>' : ''}`
-  )
+  );
   Object.entries(options).forEach(([name, option]) => {
     const defaultValue =
-      'default' in option ? ` [default: ${option.default.toString()}]` : ''
-    const alias = option.short ? `, -${option.short}` : ''
-    const description = option.description
-    console.log(`  --${name}${alias}${description}${defaultValue}`)
-  })
-  console.log()
+      'default' in option ? ` [default: ${option.default.toString()}]` : '';
+    const alias = option.short ? `, -${option.short}` : '';
+    const description = option.description;
+    console.log(`  --${name}${alias}${description}${defaultValue}`);
+  });
+  console.log();
 }

@@ -10,9 +10,11 @@ Starter repo for Node.JS apps.
 - vitest - unit testing using vite config
 - husky & lint-staged - commit control
 - pino & debug - logging
-- opentelemetry - telemetry
+- opentelemetry (OTel) - telemetry
 
-NOTE: pm2 and the auto-instrumentation feature of OTel do not support ES modules. Also the require hooks for OTel don't work with modules. As such, this project is designed to use import syntax from TypeScript, but to export as CommonJS so that everything works. If you really want to work with ES modules, you can safely change the type to `module` in `package.json`, but will need to manually instrument your dependencies, and not use pm2.
+NOTE: You must require `pino-debug` before the process starts to initialize it correctly. For more options see [here](https://github.com/pinojs/pino-debug).
+
+NOTE: OTel still has limited support for ESM, so results may vary depending on what you're trying to instrument.
 
 ## Usage
 
@@ -20,6 +22,6 @@ Scripts are controlled using Wireit, which includes features like script depende
 
 ESLint has been augmented with typescript-eslint with Type Information mode activated for extra linting powers.
 
-When you commit, Husky runs Lint-Staged, which will run both ESLint and Prettier in "check" mode. If it fails, you need to correct the errors in the staged files either manually or with `npm run format -- --write` and/or `npm run lint -- --fix`.
+When you commit, Husky runs Lint-Staged, which will run both ESLint and Prettier in "check" mode. If it fails, you need to correct the errors in the staged files (can often be done with `npm run format -- --write` and/or `npm run lint -- --fix`).
 
-When deploying, the only files that are needed are those in `dist`, `package.json`, and potentially `ecosystem.config.js` if using `pm2` for process management.
+When deploying, the only files that are needed are those in `dist`, `package.json`, and potentially `ecosystem.config.cjs` if using `pm2` for process management.

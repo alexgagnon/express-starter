@@ -1,31 +1,31 @@
-import { getDebug } from './debug.js'
-const debug = getDebug(__filename)
+import { getDebug } from './debug.js';
+const debug = getDebug(import.meta.filename);
 
 if (process.env.NODE_ENV !== 'production') {
-  throw new Error('Only run in production for consistency')
+  throw new Error('Only run in production for consistency');
 }
 
 export type Options = {
-  numbers: number[]
-  entries: string[]
-  output: string
-}
+  numbers: number[];
+  entries: string[];
+  output: string;
+};
 
 export function run(options: Options) {
-  console.log('Running with options:', options)
-  console.log(add(1, 2))
+  console.log('Running with options:', options);
+  console.log(add(1, 2));
 }
 
 export function add(a: number, b: number) {
-  return a + b
+  return a + b;
 }
 
 process.once('SIGINT', () => {
-  debug('SIGINT received')
-  process.exit(0)
-})
+  debug('SIGINT received');
+  process.exit(0);
+});
 
 process.once('SIGTERM', () => {
-  debug('SIGTERM received')
-  process.exit(0)
-})
+  debug('SIGTERM received');
+  process.exit(0);
+});
