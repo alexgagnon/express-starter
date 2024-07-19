@@ -9,7 +9,7 @@
     "format": "wireit",
     "lint": "wireit",
     "test": "wireit",
-    "start": "node --import ./dist/instrumentation.js -r pino-debug  ./dist/index.js",
+    "start": "node -r pino-debug --import ./dist/instrumentation.js ./dist/index.js",
     "pm2": "pm2 start ecosystem.config.cjs",
     "prepare": "husky"
   },
