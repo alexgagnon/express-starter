@@ -37,7 +37,8 @@
       "files": [
         "./src/**/*.{ts,js,md}",
         "package.json",
-        ".prettierrc"
+        ".prettierrc",
+        ".editorconfig"
       ],
       "output": []
     },
