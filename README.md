@@ -1,7 +1,16 @@
 # Node Starter
 
-Starter repo for Node.JS apps.
+Starter repo for Express APIs.
 
+You can use this starter to create:
+
+- REST APIs
+- Backend for Frontend
+- Token Handlers
+- API Gateways
+
+- express - app framework
+- zod - validation
 - wireit - script manager
 - typescript - static typing
 - vite-node - running typescript files directly

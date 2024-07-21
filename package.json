@@ -1,5 +1,5 @@
 {
-  "name": "starter",
+  "name": "express-starter",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -82,10 +82,15 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "^9.7.0",
+    "@types/compression": "^1.7.5",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
     "@types/debug": "^4.1.12",
     "@types/eslint__js": "^8.42.3",
     "@types/eslint-config-prettier": "^6.11.3",
+    "@types/express": "^4.17.21",
     "@types/node": "^20.14.10",
+    "@types/uuid": "^10.0.0",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
@@ -98,18 +103,35 @@
     "vitest": "^2.0.2",
     "wireit": "^0.14.5"
   },
-  "lint-staged": {
-    "*": [
-      "npm run format -- --check",
-      "npm run lint"
-    ]
-  },
   "dependencies": {
     "@opentelemetry/api": "^1.9.0",
     "@opentelemetry/auto-instrumentations-node": "^0.48.0",
     "@opentelemetry/sdk-metrics": "^1.25.1",
     "@opentelemetry/sdk-node": "^0.52.1",
     "@opentelemetry/sdk-trace-node": "^1.25.1",
-    "pino-debug": "^2.0.0"
+    "agentkeepalive": "^4.5.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "helmet": "^7.1.0",
+    "http-errors": "^2.0.0",
+    "lru-cache": "^11.0.0",
+    "pino": "^9.3.1",
+    "pino-debug": "^2.0.0",
+    "pino-http": "^10.2.0",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8",
+    "zod-to-json-schema": "^3.23.1"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npm run format -- --check",
+      "npm run lint"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
