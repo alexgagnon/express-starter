@@ -18,14 +18,15 @@ You can use this starter to create:
 - prettier & editorconfig - formatting
 - vitest - unit testing using vite config
 - husky & lint-staged - commit control
-- pino & debug - logging
+- pino - logging
 - opentelemetry (OTel) - telemetry
 
-NOTE: Prettier will use configurations from the .editorconfig file.
+NOTES:
 
-NOTE: You must require `pino-debug` before the process starts to initialize it correctly. For more options see [here](https://github.com/pinojs/pino-debug).
-
-NOTE: OTel still has limited support for ESM, so results may vary depending on what you're trying to instrument.
+- Make sure you redact PII using pino's redact option in src/configs/logger.ts
+- Prettier will use configurations from the .editorconfig file.
+- You must require `pino-debug` before the process starts to initialize it correctly. For more options see [here](https://github.com/pinojs/pino-debug).
+- OTel still has limited support for ESM, so results may vary depending on what you're trying to instrument.
 
 ## Usage
 

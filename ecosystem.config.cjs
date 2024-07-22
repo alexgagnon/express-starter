@@ -10,7 +10,8 @@ module.exports = {
       env: {
         NODE_ENV: 'production'
       },
-      interpreter_args: '-r pino-debug --import ./dist/instrumentation.js'
+      interpreter_args:
+        '--require pino-debug --import ./dist/instrumentation.js'
     }
   ]
 };
