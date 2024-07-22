@@ -9,6 +9,8 @@ You can use this starter to create:
 - Token Handlers
 - API Gateways
 
+Notable packages:
+
 - express - app framework
 - zod - validation
 - wireit - script manager
