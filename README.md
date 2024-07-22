@@ -5,9 +5,10 @@ Starter repo for Express APIs.
 You can use this starter to create:
 
 - REST APIs
-- Backend for Frontend
+- Backend for Frontends
 - Token Handlers
 - API Gateways
+- Proxy Caches
 
 Notable packages:
 
